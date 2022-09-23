@@ -1,0 +1,27 @@
+{%extends 'profileBase.html' %}
+{%block content%}
+{% with messages = get_flashed_messages(with_categories  = true)%}
+{%if messages%}
+    {%for category,message in messages%}
+        {%if category == 'success'%}
+        <div class="text-success" style="margin-left: 20px;">{{message}}</div>
+        {%endif%}
+        {%if category == 'error'%}
+        <div class="text-danger" style="margin-left: 20px;">{{message}}</div>
+        {%endif%}
+    {%endfor%}
+{%endif%}
+{%endwith%}
+<div class="mx-auto rounded shadow-lg border-success" style="width: 500px;;">
+    <div class="row">
+        <div class="col-8">
+            <form method="post">
+                <label for="terminalInput">specific Terminal</label>
+                <input type="text" name="terminalInput" id="terminalInput">
+                <button type="submit">Run</button>
+            </form>
+            
+        </div>
+
+</div>
+{%endblock%}
